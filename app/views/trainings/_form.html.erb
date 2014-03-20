@@ -1,0 +1,18 @@
+<%= simple_form_for @training, :html => { :class => 'form-horizontal' } do |f| %>
+  <p>　　　　　　　　動画ファイル、または、Youtubeの埋め込みhtmlを貼ってください</p>
+  <%= f.label :movie %>
+  <div class="controls">
+  <%= f.file_field :movie %>
+  </div>
+  <%= f.input :youtube %>
+  <%= f.input :explain %>
+  <%= f.label :muscle %>
+  <div class="controls">
+    <%= f.select :muscle, %w(胸 腹 背中 肩・腕 脚) %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                trainings_path, :class => 'btn' %>
+  </div>
+<% end %>
