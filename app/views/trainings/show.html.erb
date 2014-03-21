@@ -1,11 +1,30 @@
 <%- model_class = Training -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>作成確認</h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:movie) %>:</strong></dt>
-  <dd><%= @training.movie %></dd>
+  <dd>
+    <% if @training.youtube? %>
+    <td><%= @training.youtube.html_safe %></td>
+  <% else %>
+    <td>
+      <%#= link_to :movie, training.movie_url, id: "movie" %>
+      <%#= flowplayer_for :movie, '/flowplayer.swf' do |player|
+           player.playlist [{:url => "video_still.jpg" },
+                            {:url => "video_560x315.flv",
+                             :autoplay => false,
+                             :autoBuffering => true}]
+           player.onload do
+             'this.unmute();'
+           end
+      end %>
+      <%= video_tag(@training.movie_url, id: "movie", controls: true, autoplay: true, autoBuffering: true, loop: true, size: '560 x 315', poster: 'training.jpg') %>
+      <%#= binding.pry  %>
+    </td>
+  <% end %>
+  </dd>
   <dt><strong><%= model_class.human_attribute_name(:explain) %>:</strong></dt>
   <dd><%= @training.explain %></dd>
   <dt><strong><%= model_class.human_attribute_name(:muscle) %>:</strong></dt>

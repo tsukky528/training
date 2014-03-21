@@ -1,5 +1,6 @@
 class TrainingsController < ApplicationController
   before_action :set_training, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with :name => "528", :password => "pass", only: [:edit, :destroy, :new]
   #before_action :set_muscle, only: [:movie_show]
 
   # GET /trainings
