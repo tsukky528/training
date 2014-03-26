@@ -1,0 +1,15 @@
+<div class="page-header">
+<h1>サインイン</h1>
+</div>
+
+<%= simple_form_for :session, url: sessions_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :password %> 
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
+    
+  </div>
+  <p>アカウントをお持ちでない方は<%= link_to "こちら", signup_path %>でユーザー登録してください</p>
+<% end %>

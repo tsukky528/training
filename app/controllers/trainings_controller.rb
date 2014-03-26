@@ -34,7 +34,7 @@ class TrainingsController < ApplicationController
 
     respond_to do |format|
       if @training.save
-        format.html { redirect_to @training, notice: 'Training was successfully created.' }
+        format.html { redirect_to @training, notice: '無事、作成されました。' }
         format.json { render action: 'show', status: :created, location: @training }
       else
         format.html { render action: 'new' }
@@ -48,7 +48,7 @@ class TrainingsController < ApplicationController
   def update
     respond_to do |format|
       if @training.update(training_params)
-        format.html { redirect_to @training, notice: 'Training was successfully updated.' }
+        format.html { redirect_to @training, notice: '更新に成功しました。' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

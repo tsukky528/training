@@ -214,3 +214,9 @@ ja:
         movie: 動画
         explain: 説明
         muscle: 筋肉部位
+      user:
+        name: ユーザー名
+        password: パスワード
+        password_confirmation: パスワード確認
+      session:
+        password: パスワード

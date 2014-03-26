@@ -1,0 +1,56 @@
+<%- model_class = Training -%>
+<div class="page-header">
+  <h1><%= params[:muscle] %>の筋トレ</h1>
+</div>
+
+<table class="table table-striped">
+  <tbody>
+    <% @training.each do |training| %>
+      <tr>
+	<% if training.youtube? %>
+		<td><%= training.youtube.html_safe %></td>
+	<% else %>
+		<td>
+                  <%#= link_to :movie, training.movie_url, id: "movie" %>
+                  <%#= flowplayer_for :movie, '/flowplayer.swf' do |player|
+                      player.playlist [{:url => "video_still.jpg" },
+                                       {:url => "video_560x315.flv",
+                                        :autoplay => false,
+                                        :autoBuffering => true}]
+                      player.onload do
+                        'this.unmute();'
+                      end
+		  end %>
+	          <%= link_to video_tag(training.movie_url, id: "movie", controls: true, autoplay: true, autoBuffering: true, loop: true, size: '560 x 315', poster: 'training.jpg') %>
+		  <%#= binding.pry  %>
+                </td>
+	<% end %>
+        <td  align="left">
+          <%= training.explain %><br />
+          <%#= link_to "詳細ページ", {:controller => "commeds", :action => "show", :id => commed.id}, :class => 'btn btn-mini' %>
+          <%# @comms.each do |comm| %>
+            <%# if current_user %>
+              <%# if current_user.twittername == comm.admas %>
+                <%#= link_to "編集", {:controller => "commeds", :action => "edit", :id => commed.id}, :class => 'btn btn-mini' %>
+                <%#= link_to "消去", {:controller => "commeds", :action => "destroy", :id => commed.id},
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger btn-mini' %>
+              <%# else %>
+              <%# end %>
+            <%# else %>
+            <%# end %>
+          <%# end %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_training_path(training), :class => 'btn btn-mini' %>
+           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                       training_path(training),
+                       :method => :delete,
+                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                       :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
