@@ -1,12 +1,42 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1>登録情報</h1>
+  <h1>マイページ</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @user.name %></dd>
+  <h4><dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @user.name %></dd></h4>
 </dl>
+<table class="table table-striped">
+  <tbody>
+    <td><h3>お気に入り動画一覧</h3></td>
+    <% @user.trainings.each do |training| %>
+    <tr>
+  <% if training.youtube? %>
+    <td><%= training.youtube.html_safe %></td>
+  <% else %>
+    <td>
+      <%#= link_to :movie, training.movie_url, id: "movie" %>
+      <%#= flowplayer_for :movie, '/flowplayer.swf' do |player|
+           player.playlist [{:url => "video_still.jpg" },
+                            {:url => "video_560x315.flv",
+                             :autoplay => false,
+                             :autoBuffering => true}]
+           player.onload do
+           'this.unmute();'
+           end
+      end %>
+     
+     <%= link_to video_tag(training.movie_url, id: "movie", controls: true, autoplay: true, autoBuffering: true, loop: true, size: '560 x 315', poster: 'training.jpg') %>
+      <%#= binding.pry  %>
+    </td>
+    <% end %>
+    <td  align="left">
+      <%= training.explain %><br />
+    </td>
+    <% end %>
+  </tbody>
+</table>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

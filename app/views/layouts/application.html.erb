@@ -37,7 +37,6 @@
 
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "javascripts/flowplayer.min.js" %>
-  </head>
   <body>
 
     <div class="navbar navbar-fluid-top">
@@ -57,7 +56,6 @@
               <li><%= link_to "肩・腕", "/muscles/肩・腕"  %></li>
               <li><%= link_to "脚", "/muscles/脚"  %></li>
               <% if signed_in? %>
-                <li><%= link_to "ユーザ一覧", users_path %></li>
                 <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   アカウント <b class="caret"></b>
@@ -73,6 +71,7 @@
                 </li>
               <% else %>
                 <li><%= link_to "サインイン", signin_path %></li>
+                <li><%= link_to "ユーザー登録", signup_path %></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->

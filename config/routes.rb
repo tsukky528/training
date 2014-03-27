@@ -4,6 +4,7 @@ TrainingMovie::Application.routes.draw do
   resources :trainings
 
   resources :sessions, only: [:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

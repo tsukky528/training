@@ -15,7 +15,7 @@ class TrainingsController < ApplicationController
   end
 
   def movie_show
-    @training = Training.where(muscle: params[:muscle])
+    @trainings = Training.where(muscle: params[:muscle])
   end
 
   # GET /trainings/new

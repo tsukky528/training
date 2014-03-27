@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323082046) do
+ActiveRecord::Schema.define(version: 20140326070519) do
+
+  create_table "relationships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "like_movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["like_movie_id"], name: "index_relationships_on_like_movie_id"
+  add_index "relationships", ["user_id", "like_movie_id"], name: "index_relationships_on_user_id_and_like_movie_id", unique: true
+  add_index "relationships", ["user_id"], name: "index_relationships_on_user_id"
 
   create_table "trainings", force: true do |t|
     t.string   "movie"
@@ -27,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140323082046) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token",  limit: nil
   end
 
 end
