@@ -29,9 +29,7 @@ class TrainingsController < ApplicationController
 
   def like
     @training = Training.find(params[:id])
-    @relationship = Relationship.create(like_movie_id: @training.id,
-     user_id: current_user.id)
-
+    @relationship = Relationship.create(like_movie_id: @training.id, user_id: current_user.id)
   end
 
   def unlike

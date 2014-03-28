@@ -138,7 +138,7 @@ ja:
       prompt: 選択してください。
     submit:
       create: 作成
-      submit: サインインする
+      submit: サインイン
       update: 更新する
       new: 新規作成
       cancel: キャンセル

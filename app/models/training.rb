@@ -5,6 +5,7 @@ class Training < ActiveRecord::Base
 
   validate do
   	break if movie? || youtube?
+  	errors.add(:movie, "どちらか動画が必要です。")
   	errors.add(:youtube, "どちらか動画が必要です。")
   end
   
