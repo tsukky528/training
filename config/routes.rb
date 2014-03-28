@@ -1,7 +1,12 @@
 TrainingMovie::Application.routes.draw do
   resources :users
 
-  resources :trainings
+  resources :trainings do
+    member do
+      post :like
+      post :unlike
+    end
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]

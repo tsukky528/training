@@ -129,7 +129,7 @@ ja:
         other: ! '%{model}に%{count}個のエラーが発生しました。'
   helpers:
     links:
-      new: 新規作成
+      new: 動画登録
       edit: 編集
       destroy: 消去
       cancel: キャンセル
@@ -218,6 +218,6 @@ ja:
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード確認
-        session:
-          password: パスワード
-          name: ユーザー名
+      session:
+        password: パスワード
+        name: ユーザー名

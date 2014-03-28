@@ -27,6 +27,18 @@ class TrainingsController < ApplicationController
   def edit
   end
 
+  def like
+    @training = Training.find(params[:id])
+    @relationship = Relationship.create(like_movie_id: @training.id,
+     user_id: current_user.id)
+
+  end
+
+  def unlike
+    @training = Training.find(params[:id])
+    Relationship.where(like_movie_id: @training.id, user_id: current_user.id).first.destroy
+  end
+
   # POST /trainings
   # POST /trainings.json
   def create

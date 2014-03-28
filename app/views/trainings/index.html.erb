@@ -28,5 +28,5 @@
 <footer id='left'>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_training_path,
-            :class => 'btn' %>
+            :class => 'btn' if signed_in? %>
 </footer>
