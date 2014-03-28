@@ -14,9 +14,9 @@ TrainingMovie::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  get 'muscles/:muscle' => 'trainings#movie_show'
+  get 'muscles/:muscle', to:  'trainings#movie_show'
 
-  get '*a', :to => 'trainings#index'
+  get '*a', to: 'trainings#index'
   root 'trainings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
