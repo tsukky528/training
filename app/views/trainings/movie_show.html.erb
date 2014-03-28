@@ -11,19 +11,7 @@
 		<td><%= training.youtube.html_safe %></td>
 	<% else %>
 		<td>
-      <%#= link_to :movie, training.movie_url, id: "movie" %>
-      <%#= flowplayer_for :movie, '/flowplayer.swf' do |player|
-           player.playlist [{:url => "video_still.jpg" },
-                            {:url => "video_560x315.flv",
-                             :autoplay => false,
-                             :autoBuffering => true}]
-           player.onload do
-           'this.unmute();'
-           end
-		  end %>
-	   
-     <%= link_to video_tag(training.movie_url, id: "movie", controls: true, autoplay: true, autoBuffering: true, loop: true, size: '560 x 315', poster: 'training.jpg') %>
-		  <%#= binding.pry  %>
+     <%= render 'video', training: training %>
     </td>
 	<% end %>
     <td  align="left">
