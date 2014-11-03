@@ -50,11 +50,7 @@
           <a class="brand" href= '/'>Akatsu筋トレ</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "胸", "/muscles/胸"  %></li>
-              <li><%= link_to "体幹", "/muscles/体幹"  %></li>
-	            <li><%= link_to "背中", "/muscles/背中"  %></li>
-              <li><%= link_to "肩・腕", "/muscles/肩・腕"  %></li>
-              <li><%= link_to "脚", "/muscles/脚"  %></li>
+              <%= render 'layouts/muscle_link' %>
               <% if signed_in? %>
                 <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -85,11 +81,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
 	            <li class="nav-header"><h4>筋肉一覧</h4></li>
-              <li><%= link_to "胸", "/muscles/胸"  %></li>
-              <li><%= link_to "体幹", "/muscles/体幹"  %></li>
-	            <li><%= link_to "背中", "/muscles/背中"  %></li>
-              <li><%= link_to "肩・腕", "/muscles/肩・腕"  %></li>
-	            <li><%= link_to "脚", "/muscles/脚"  %></li></ br>
+              <%= render 'layouts/muscle_link' %></ br>
             </ul>
 	      <%= image_tag('muscle1.jpg')%>
           </div><!--/.well -->

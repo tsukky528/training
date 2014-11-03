@@ -14,7 +14,7 @@ TrainingMovie::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  get 'muscles/:muscle', to:  'trainings#movie_show'
+  get ':muscle', to:  'trainings#movie_show'
 
   get '*a', to: 'trainings#index'
   root 'trainings#index'
