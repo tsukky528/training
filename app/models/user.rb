@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :password, length: { minimum: 4 }
+  validates :password, length: { minimum: 6 }
 
   def like?(like_training)
     relationships.find_by(like_movie_id: like_training.id)
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   #railsチュートリアル参考
-  
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
