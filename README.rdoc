@@ -1,3 +1,11 @@
 == README
 
-This is Muscle Movie Web App!!
+This is Muscle Movie Web App!!  
+
+Akatsuki BootCampの成果物  
+
+ユーザ管理機能、動画管理機能、お気に入り機能をもつ  
+
+ユーザは動画のお気に入りボタンを押すと、マイページにお気に入り動画をまとめることができる  
+
+管理ユーザは動画のアップロード（youtubeのurl, 録画ファイルの両方可能）ができる  
